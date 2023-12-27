@@ -1,12 +1,9 @@
-import { useState } from "react";
 import "./App.css";
-import StripeContainer from "./components/StripeContainer";
-import iphone from "./asset/ipohnemax.jpg";
+
 import { Route, Routes } from "react-router-dom";
 import ShareList from "./components/ShareList/ShareList";
 
 function App() {
-  const [showItem, setShowItem] = useState(false);
   return (
     <div className="App">
       {/* <h1>Wish List</h1>
