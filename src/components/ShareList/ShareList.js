@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./ShareList.css";
 import logo from "../../asset/wlR_Black_Logo.png";
@@ -7,6 +7,10 @@ import { useQuery } from "@tanstack/react-query";
 import getwishlistdetails from "../../api/wishList";
 const ShareList = () => {
   const { wishlistId } = useParams();
+  const [total, setTotal] = useState(0);
+  const handleTotal = () => {
+    setTotal = total + 1;
+  };
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["wishlistdetails", wishlistId],
@@ -25,6 +29,8 @@ const ShareList = () => {
     <div className="main-container">
       <div className="sub-container">
         <div className="title-container">
+          {total}
+          <button onClick={handleTotal}>+</button>
           <img src={logo} />
           <h3>{data?.name}</h3>
         </div>
